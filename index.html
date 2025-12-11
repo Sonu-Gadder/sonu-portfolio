@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonu Kumar | Marketing Automation Specialist</title>
+    <link rel="icon" type="image/x-icon" href="https://sonu-gadder.github.io/images-uploades/fav.jpg">
+    <meta name="description" content="Marketing Automation Specialist - Sonu Kumar. Email marketing, CRM, campaign automation, and lead generation expert.">
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- 1. VARIABLES & RESET --- */
+        :root {
+            --primary: #357AF6; 
+            --primary-dark: #1a5cce;
+            --accent: #00d2ff;
+            --dark: #0f172a;
+            --text-body: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --success: #10b981; /* Green for verified icon */
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --hover-shadow: 0 20px 40px rgba(53, 122, 246, 0.15);
+            --gradient: linear-gradient(135deg, #357AF6 0%, #00d2ff 100%);
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px; 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-body);
+            background-color: var(--bg-light);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 { color: var(--dark); font-weight: 700; letter-spacing: -0.5px; }
+        a { text-decoration: none; transition: var(--transition); color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section { padding: 100px 0; position: relative; overflow: hidden; }
+        .bg-white { background-color: var(--white); }
+
+        /* --- 2. ANIMATIONS & REVEAL CLASSES --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(53, 122, 246, 0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(53, 122, 246, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(53, 122, 246, 0); }
+        }
+
+        /* --- 3. HEADER --- */
+        .header {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .header-scrolled { padding: 10px 0; box-shadow: 0 5px 20px rgba(0,0,0,0.05); background: rgba(255, 255, 255, 0.98); }
+        .navbar { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.6rem; font-weight: 800; color: var(--dark); }
+        .logo span { color: var(--primary); }
+        .nav-menu { display: flex; gap: 35px; align-items: center; }
+        .nav-link { color: var(--dark); font-weight: 600; font-size: 0.95rem; position: relative; cursor: pointer; }
+        .nav-link:hover, .nav-link.active-nav { color: var(--primary); }
+        .btn-header {
+            background: var(--gradient); color: white !important;
+            padding: 10px 28px; border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(53, 122, 246, 0.3);
+        }
+        .btn-header:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(53, 122, 246, 0.4); }
+
+        /* --- 4. HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(243, 246, 252, 0.95)), url('https://sonu-gadder.github.io/images-uploades/1748852107871.jpg');
+            background-size: cover; background-position: center top;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; padding-top: 80px; position: relative;
+        }
+        .hero-content { z-index: 1; max-width: 800px; display: flex; flex-direction: column; align-items: center; }
+        .avatar-container {
+            position: relative; margin-bottom: 25px; width: 160px; height: 160px;
+        }
+        .avatar {
+            width: 100%; height: 100%; border-radius: 50%;
+            border: 4px solid white; box-shadow: 0 10px 30px rgba(53, 122, 246, 0.3);
+            object-fit: cover; position: relative; z-index: 2;
+        }
+        .avatar-container::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            border-radius: 50%; border: 2px solid var(--primary);
+            animation: pulse-glow 2s infinite; z-index: 1;
+        }
+        .badge {
+            background: #eef4ff; color: var(--primary); padding: 5px 15px;
+            border-radius: 20px; font-weight: 600; font-size: 0.9rem; margin-bottom: 15px; display: inline-block;
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; line-height: 1.2; color: #2d3436; }
+        .hero h1 span { color: var(--primary); }
+        .subtitle { font-size: 1.5rem; color: var(--text-body); margin-bottom: 25px; height: 35px; display: block; }
+        .typing-text { font-weight: 600; color: var(--primary); }
+        .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .btn {
+            padding: 14px 36px; border-radius: 50px; font-weight: 700;
+            font-size: 1rem; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; border: none; transition: var(--transition);
+        }
+        .btn-primary { background: var(--gradient); color: white; box-shadow: 0 10px 20px rgba(53, 122, 246, 0.2); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(53, 122, 246, 0.3); }
+        .btn-outline { background: white; color: var(--dark); border: 2px solid #e1e1e1; }
+        .btn-outline:hover { border-color: var(--primary); color: var(--primary); background: #f8fbff; }
+
+        /* --- 5. STATS SECTION --- */
+        .stats-wrapper {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            background: white; padding: 50px; border-radius: var(--radius);
+            box-shadow: var(--card-shadow); margin-top: -80px; position: relative; z-index: 10;
+        }
+        .stat-box {
+            display: flex; align-items: center; justify-content: center; gap: 20px;
+            border-right: 1px solid #eee;
+        }
+        .stat-box:last-child { border-right: none; }
+        .stat-icon {
+            width: 60px; height: 60px; background: #eef4ff; color: var(--primary);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; transition: var(--transition);
+        }
+        .stat-box:hover .stat-icon { background: var(--primary); color: white; transform: rotateY(360deg); }
+        .stat-info h3 { font-size: 2.2rem; margin-bottom: 0; color: var(--dark); line-height: 1; }
+
+        /* --- 6. ABOUT --- */
+        .section-title { font-size: 2.2rem; margin-bottom: 15px; text-align: center; }
+        .section-desc { text-align: center; max-width: 600px; margin: 0 auto 50px; color: #888; }
+        .title-bar {
+            width: 60px; height: 4px; background: var(--primary);
+            border-radius: 2px; margin: 0 auto 50px;
+        }
+
+        .about-container { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: start; }
+        .about-card {
+            background: white; padding: 40px; border-radius: var(--radius);
+            box-shadow: var(--card-shadow); border: 1px solid #f0f0f0;
+        }
+        .info-row { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px dashed #e1e1e1; }
+        .info-row:last-child { border-bottom: none; }
+        .info-label { font-weight: 700; color: var(--dark); display: flex; align-items: center; gap: 10px; }
+        .info-label i { color: var(--primary); font-size: 0.9rem; }
+
+        /* --- 7. EXPERIENCE (TIMELINE) --- */
+        .timeline { position: relative; max-width: 900px; margin: 0 auto; }
+        .timeline::before {
+            content: ''; position: absolute; top: 0; bottom: 0; left: 20px; width: 3px;
+            background: #eef4ff; border-radius: 5px;
+        }
+        .timeline-item { position: relative; padding-left: 60px; padding-bottom: 50px; }
+        .timeline-item:last-child { padding-bottom: 0; }
+        .timeline-dot {
+            position: absolute; left: 11px; top: 5px; width: 20px; height: 20px;
+            background: white; border: 4px solid var(--primary); border-radius: 50%;
+            z-index: 2; transition: var(--transition);
+        }
+        .timeline-item:hover .timeline-dot { background: var(--primary); box-shadow: 0 0 0 6px rgba(53, 122, 246, 0.2); }
+        .timeline-content {
+            background: white; padding: 30px; border-radius: var(--radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #f5f5f5;
+            transition: var(--transition);
+        }
+        .timeline-item:hover .timeline-content { transform: translateY(-5px); box-shadow: var(--hover-shadow); }
+        .date { font-size: 0.85rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
+        .job-title { font-size: 1.3rem; margin: 5px 0; }
+        .timeline-content ul { margin-top: 15px; padding-left: 20px; }
+        .timeline-content ul li { list-style: disc; margin-bottom: 8px; color: var(--text-body); }
+
+        /* --- 8. NEW SKILLS SECTION (Badges + Bars) --- */
+        .tech-badges-container {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 60px;
+        }
+        .tech-badge {
+            background: white; border: 1px solid #e2e8f0; padding: 10px 25px; border-radius: 8px;
+            font-weight: 600; color: var(--dark); font-size: 0.9rem; display: flex; align-items: center; gap: 10px;
+            transition: var(--transition);
+        }
+        .tech-badge i { color: var(--primary); font-size: 1.1rem; }
+        .tech-badge:hover { border-color: var(--primary); box-shadow: 0 5px 15px rgba(53, 122, 246, 0.1); transform: translateY(-2px); }
+
+        .skills-grid-new { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 60px; max-width: 1000px; margin: 0 auto; }
+        .skill-row { margin-bottom: 0; }
+        .skill-info { display: flex; justify-content: space-between; margin-bottom: 10px; }
+        .skill-name { font-weight: 700; color: var(--dark); font-size: 0.95rem; }
+        .skill-percent { font-weight: 700; color: var(--dark); }
+        
+        .progress-bg { width: 100%; height: 8px; background: #e2e8f0; border-radius: 10px; overflow: hidden; }
+        .progress-fill {
+            height: 100%; background: var(--primary); border-radius: 10px; width: 0; transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* --- 9. NEW PORTFOLIO (Client Search) --- */
+        .search-container { max-width: 600px; margin: 0 auto 50px; position: relative; }
+        .search-input {
+            width: 100%; padding: 18px 25px 18px 50px; border: 1px solid #e2e8f0; border-radius: 50px;
+            font-size: 1rem; font-family: inherit; outline: none; box-shadow: var(--card-shadow); transition: var(--transition);
+        }
+        .search-input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(53, 122, 246, 0.1); }
+        .search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #94a3b8; font-size: 1.1rem; }
+
+        .clients-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+        .client-card {
+            background: white; padding: 15px 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            display: flex; align-items: center; justify-content: space-between; border-left: 4px solid var(--primary);
+            transition: var(--transition);
+        }
+        .client-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.06); }
+        .client-name { font-weight: 600; font-size: 0.9rem; color: var(--dark); }
+        .verified-icon { color: var(--success); font-size: 0.9rem; }
+
+        /* --- 10. CONTACT & FOOTER --- */
+        .contact-box {
+            background: white; border-radius: var(--radius); padding: 60px 20px; text-align: center;
+            box-shadow: var(--card-shadow); max-width: 800px; margin: 0 auto; border-top: 5px solid var(--primary);
+        }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin: 40px 0; }
+        .contact-item i { font-size: 1.8rem; color: var(--primary); margin-bottom: 15px; display: block; }
+        .contact-item span { color: var(--dark); font-weight: 600; display: block; margin-bottom: 5px; }
+        
+        .footer { background: var(--dark); color: #b2b2c5; padding: 50px 0 20px; text-align: center; }
+        .social-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; }
+        .social-link {
+            width: 45px; height: 45px; background: rgba(255,255,255,0.1); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; color: white; font-size: 1.1rem;
+        }
+        .social-link:hover { background: var(--primary); transform: translateY(-3px); }
+
+        /* --- RESPONSIVE --- */
+        .menu-toggle { display: none; }
+        @media(max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .stats-wrapper { grid-template-columns: 1fr; gap: 30px; margin-top: 40px; padding: 30px; }
+            .stat-box { border-right: none; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+            .stat-box:last-child { border-bottom: none; }
+            .about-container { grid-template-columns: 1fr; gap: 40px; }
+            .skills-grid-new { grid-template-columns: 1fr; gap: 25px; }
+            .clients-grid { grid-template-columns: 1fr; }
+            
+            .menu-toggle { display: block; cursor: pointer; z-index: 1001; }
+            .bar { display: block; width: 25px; height: 3px; background: var(--dark); margin: 5px auto; transition: 0.3s; border-radius: 3px; }
+            .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+            .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+            .nav-menu {
+                position: fixed; left: -100%; top: 0; flex-direction: column; background: white;
+                width: 80%; height: 100vh; padding-top: 100px; box-shadow: 5px 0 30px rgba(0,0,0,0.1);
+                transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); z-index: 1000; align-items: flex-start; padding-left: 30px;
+            }
+            .nav-menu.active { left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container navbar">
+            <a href="#home" class="logo">Sonu<span>.</span></a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active-nav">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link btn-header">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content reveal active">
+                <div class="badge">Available for Work</div>
+                <div class="avatar-container">
+                    <img src="https://sonu-gadder.github.io/images-uploades/1748852107871.jpg" alt="Sonu Kumar" class="avatar">
+                </div>
+                <h1>Hi, I'm <span>Sonu Kumar</span></h1>
+                <span class="subtitle">I am a <span class="typing-text"></span></span>
+                <p style="font-size: 1.15rem; max-width: 650px; margin-bottom: 35px; color: #636e72;">
+                    Helping businesses scale through data-driven strategies. Specialized in Marketing Automation, CRM Operations, and High-ROI Lead Generation.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Let's Talk <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://sonu-gadder.github.io/portfolio/resume.pdf" target="_blank" class="btn btn-outline"><i class="fas fa-download"></i> Download Resume</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <div class="container relative">
+        <div class="stats-wrapper reveal">
+            <div class="stat-box">
+                <div class="stat-icon"><i class="fas fa-briefcase"></i></div>
+                <div class="stat-info"><h3 data-target="10">0+</h3><p>Years Experience</p></div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-icon"><i class="fas fa-layer-group"></i></div>
+                <div class="stat-info"><h3 data-target="15">0+</h3><p>Tech Tools Mastered</p></div>
+            </div>
+           
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">About Me</h2>
+            <div class="title-bar reveal"></div>
+            <div class="about-container">
+                <div class="about-text reveal">
+                    <h3 style="margin-bottom: 20px; font-size: 1.8rem;">Scalable Systems. Measurable Growth.</h3>
+                    <p style="margin-bottom: 20px;">Passionate about creating scalable marketing systems that drive lead generation and brand growth. I bridge the gap between technical execution and marketing strategy.</p>
+                    <p>With over a decade of experience, I excel at adapting to new tools quickly and applying them strategically to meet business objectives.</p>
+                </div>
+                <div class="about-card reveal">
+                    <div class="info-row"><span class="info-label"><i class="fas fa-user"></i> Name</span><span>Sonu Kumar</span></div>
+                    <div class="info-row"><span class="info-label"><i class="fas fa-map-marker-alt"></i> Location</span><span>Hisar, Haryana, India</span></div>
+                    <div class="info-row"><span class="info-label"><i class="fas fa-envelope"></i> Email</span><span>snuvrma77@gmail.com</span></div>
+                    <div class="info-row"><span class="info-label"><i class="fas fa-phone"></i> Phone</span><span>+91 99712-68695</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section" style="background: var(--white);">
+        <div class="container">
+            <h2 class="section-title reveal">My Experience</h2>
+            <div class="title-bar reveal"></div>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="date">May 2025 - Present</span>
+                        <h3 class="job-title">Business Development Manager</h3>
+                        <span class="company">Alpinetech Business Solutions Pvt. Ltd.</span>
+                        <ul>
+                            <li>Driving marketing automation for internal & client workflows.</li>
+                            <li>Managing lead generation pipelines and CRM operations.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="date">2014 - Feb 2025</span>
+                        <h3 class="job-title">Marketing Automation Specialist</h3>
+                        <span class="company">Mosaic Digital (Subsidiary of HT Media Group)</span>
+                        <ul>
+                            <li>Tech Stack: Pardot, HubSpot, Marketo, MailChimp.</li>
+                            <li>Implemented Lead Scoring & Nurturing strategies.</li>
+                            <li>Conducted rigorous A/B Testing and ROI Analysis.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="date">2011 - 2014</span>
+                        <h3 class="job-title">Diploma in Computer Science</h3>
+                        <span class="company">Guru Jambheshwar University, Hisar</span>
+                        <p>Built a solid technical foundation in web operations and logic development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SKILLS SECTION -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Technical Skills</h2>
+            <p class="section-desc reveal">Expertise in advanced MarTech tools, CRM platforms, and creative technologies.</p>
+            <div class="title-bar reveal"></div>
+
+            <div class="tech-badges-container reveal">
+                <div class="tech-badge"><i class="fas fa-bullseye"></i> Marketo</div>
+                <div class="tech-badge"><i class="fas fa-cloud"></i> Pardot</div>
+                <div class="tech-badge"><i class="fab fa-hubspot"></i> HubSpot</div>
+                <div class="tech-badge"><i class="fas fa-envelope-open-text"></i> MailChimp</div>
+                <div class="tech-badge"><i class="fab fa-salesforce"></i> Salesforce</div>
+                <div class="tech-badge"><i class="fas fa-chart-line"></i> Google Analytics</div>
+                <div class="tech-badge"><i class="fab fa-html5"></i> HTML/CSS</div>
+            </div>
+
+            <div class="skills-grid-new reveal">
+                <div class="skill-row">
+                    <div class="skill-info"><span class="skill-name">Marketing Automation</span><span class="skill-percent">100%</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 100%"></div></div>
+                </div>
+                <div class="skill-row">
+                    <div class="skill-info"><span class="skill-name">Email Campaign Management</span><span class="skill-percent">99%</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 99%"></div></div>
+                </div>
+                <div class="skill-row">
+                    <div class="skill-info"><span class="skill-name">CRM Integration</span><span class="skill-percent">98%</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 98%"></div></div>
+                </div>
+                <div class="skill-row">
+                    <div class="skill-info"><span class="skill-name">HTML/CSS for Email</span><span class="skill-percent">92%</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 92%"></div></div>
+                </div>
+                <div class="skill-row">
+                    <div class="skill-info"><span class="skill-name">A/B Testing & Analytics</span><span class="skill-percent">90%</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 90%"></div></div>
+                </div>
+                <div class="skill-row">
+                    <div class="skill-info"><span class="skill-name">Lead Nurturing & Scoring</span><span class="skill-percent">88%</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 88%"></div></div>
+                </div>
+                <div class="skill-row">
+                    <div class="skill-info"><span class="skill-name">Google Analytics & UTM</span><span class="skill-percent">85%</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 85%"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW PORTFOLIO / LEAD GEN SECTION -->
+    <section id="portfolio" class="section bg-white">
+        <div class="container">
+            <h2 class="section-title reveal">Portfolio & Lead Generation</h2>
+            <p class="section-desc reveal">Live web projects and a list of brands I have generated leads for.</p>
+            <div class="title-bar reveal"></div>
+
+            <div class="search-container reveal">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="clientSearch" class="search-input" placeholder="Search clients (e.g. 'Jindal', 'Logistics')...">
+            </div>
+
+            <div class="clients-grid reveal" id="clientGrid">
+                <div class="client-card"> <span class="client-name">CJ Darcl Logistics Limited</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">Shatish BPO</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">KCC</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">Yamato Logistics India</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">SUGS Lloyd</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">Vishal Mega Mart</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">Oriflame Cosmetics</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">NexGen</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">Halonix</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">Adroitec</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">Kelley India</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">Jindal Group</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">BGPPL</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">Falcon</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">Houston</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">SKN Industries</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">Kamal IT / PPAP</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">ISGEC</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">RMSI Pvt Ltd</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">iSON</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">Triveni Group</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">Ultratech Cement</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">STEAG Energy</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">Anand NVH Products</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">JBM Group</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">PI Industries Ltd</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">MBL Infra</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+                <div class="client-card"> <span class="client-name">SAM (India)</span> <i class="fas fa-check-circle verified-icon"></i> </div>
+            </div>
+            
+            <div id="no-results" style="display: none; text-align: center; margin-top: 20px; color: #94a3b8;">
+                No clients found matching your search.
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Get In Touch</h2>
+            <div class="title-bar reveal"></div>
+            <div class="contact-box reveal">
+                <h3>Ready to optimize your marketing?</h3>
+                <p>I am currently available for freelance projects or full-time opportunities.</p>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i><span>Email</span>
+                        <a href="mailto:snuvrma77@gmail.com">snuvrma77@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i><span>Phone</span>
+                        <a href="tel:+919971268695">+91 99712-68695</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i><span>Location</span>
+                        <a href="#">Hisar, Haryana</a>
+                    </div>
+                </div>
+                <a href="mailto:snuvrma77@gmail.com" class="btn btn-primary">Send Message Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/sonu-business-development-manager/" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://x.com/sonuvermajii" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="mailto:snuvrma77@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p style="font-size: 1.1rem; font-weight: 700; color: white;">Sonu Kumar</p>
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.9rem; margin-top: 20px;">
+                &copy; 2025 All Rights Reserved. Designed for Marketing Excellence.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            /* 1. TYPING TEXT EFFECT */
+            const textElement = document.querySelector('.typing-text');
+            const texts = ["Automation Specialist", "CRM Expert", "Email Strategist", "Lead Gen Pro"];
+            let count = 0; let index = 0; let currentText = ""; let letter = "";
+
+            (function type() {
+                if (count === texts.length) count = 0;
+                currentText = texts[count];
+                letter = currentText.slice(0, ++index);
+                if(textElement) {
+                    textElement.textContent = letter;
+                    if (letter.length === currentText.length) {
+                        count++; index = 0; setTimeout(type, 2000);
+                    } else {
+                        setTimeout(type, 100);
+                    }
+                }
+            })();
+
+            /* 2. SCROLL REVEAL */
+            const reveals = document.querySelectorAll(".reveal");
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const elementVisible = 100;
+                reveals.forEach((reveal) => {
+                    if (reveal.getBoundingClientRect().top < windowHeight - elementVisible) {
+                        reveal.classList.add("active");
+                    }
+                });
+            };
+            window.addEventListener("scroll", revealOnScroll);
+            revealOnScroll();
+
+            /* 3. MOBILE MENU */
+            const menuToggle = document.getElementById('mobile-menu');
+            const navMenu = document.querySelector('.nav-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                    menuToggle.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+            }
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+
+            /* 4. HEADER & NAV ACTIVE STATE */
+            const header = document.querySelector('.header');
+            const sections = document.querySelectorAll('section');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) header.classList.add('header-scrolled');
+                else header.classList.remove('header-scrolled');
+
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= (sectionTop - 150)) current = section.getAttribute('id');
+                });
+                navLinks.forEach(link => {
+                    link.classList.remove('active-nav');
+                    if (link.getAttribute('href').includes(current) && current !== '') {
+                        link.classList.add('active-nav');
+                    }
+                });
+            });
+
+            /* 5. STATS COUNTER */
+            const counters = document.querySelectorAll(".stat-info h3");
+            const counterObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = +counter.getAttribute('data-target');
+                        const speed = 50; 
+                        const updateCount = () => {
+                            let currentText = counter.innerText.replace('+', '').replace('k', '');
+                            const count = +currentText;
+                            const inc = target / speed;
+                            if (count < target) {
+                                let nextVal = Math.ceil(count + inc);
+                                if(nextVal > target) nextVal = target;
+                                if (target >= 1000 && nextVal >= 1000) counter.innerText = "1k+";
+                                else counter.innerText = nextVal + "+";
+                                setTimeout(updateCount, 40);
+                            } else {
+                                if (target >= 1000) counter.innerText = "1k+";
+                                else counter.innerText = target + "+";
+                            }
+                        };
+                        if(counter.innerText === "0+") updateCount();
+                        observer.unobserve(counter);
+                    }
+                });
+            }, { threshold: 0.5 });
+            counters.forEach(counter => counterObserver.observe(counter));
+
+            /* 6. SKILL BARS ANIMATION */
+            const progressBars = document.querySelectorAll(".progress-fill");
+            const skillObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const bar = entry.target;
+                        const targetWidth = bar.style.width;
+                        bar.style.width = "0"; bar.style.transition = "none"; 
+                        setTimeout(() => {
+                            bar.style.transition = "width 1.5s ease-in-out";
+                            bar.style.width = targetWidth;
+                        }, 100);
+                        observer.unobserve(bar);
+                    }
+                });
+            }, { threshold: 0.5 });
+            progressBars.forEach(bar => skillObserver.observe(bar));
+
+            /* 7. CLIENT SEARCH FUNCTIONALITY */
+            const searchInput = document.getElementById('clientSearch');
+            const clientCards = document.querySelectorAll('.client-card');
+            const noResults = document.getElementById('no-results');
+
+            if(searchInput) {
+                searchInput.addEventListener('keyup', (e) => {
+                    const term = e.target.value.toLowerCase();
+                    let hasMatches = false;
+                    clientCards.forEach(card => {
+                        const name = card.querySelector('.client-name').textContent.toLowerCase();
+                        if(name.includes(term)) {
+                            card.style.display = 'flex';
+                            hasMatches = true;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    if(hasMatches) noResults.style.display = 'none';
+                    else noResults.style.display = 'block';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
